@@ -22,10 +22,10 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             //stage.setTitle("Tasks Management");
-            stage.show();
-            stage.setResizable(false);
-            Image icon = new Image("icon.png");
-            stage.getIcons().add(icon);
+            //stage.show();
+            //stage.setResizable(false);
+            //Image icon = new Image("icon.png");
+            //stage.getIcons().add(icon);
 
         } catch(Exception e) {
             e.printStackTrace();
