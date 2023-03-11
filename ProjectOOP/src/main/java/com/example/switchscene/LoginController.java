@@ -75,11 +75,6 @@ public class LoginController {
 
     }
 
-    public void signup (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-    }
 
     public void delete(ActionEvent event) throws IOException {}
     public void add (ActionEvent event) throws IOException {}
