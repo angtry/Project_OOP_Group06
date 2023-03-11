@@ -4,6 +4,6 @@ module com.example.switchscene {
     requires java.sql;
 
 
-    opens com.example.switchscene to javafx.fxml;
-    exports com.example.switchscene;
+    opens com.example.Taskmanage to javafx.fxml;
+    exports com.example.Taskmanage;
 }
