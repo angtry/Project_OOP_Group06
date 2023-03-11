@@ -24,8 +24,8 @@ public class Main extends Application {
             stage.setTitle("Tasks Management");
             stage.show();
             //stage.setResizable(false);
-            Image icon = new Image("icon.png");
-            stage.getIcons().add(icon);
+            //Image icon = new Image("icon.png");
+            //stage.getIcons().add(icon);
 
         } catch(Exception e) {
             e.printStackTrace();
