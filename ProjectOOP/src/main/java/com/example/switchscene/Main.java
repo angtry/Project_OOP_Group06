@@ -21,7 +21,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Tasks Management");
+            //stage.setTitle("Tasks Management");
             stage.show();
             //stage.setResizable(false);
             //Image icon = new Image("icon.png");
