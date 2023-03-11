@@ -23,7 +23,7 @@ public class Main extends Application {
             stage.setScene(scene);
             stage.setTitle("Tasks Management");
             stage.show();
-            stage.setResizable(false);
+            //stage.setResizable(false);
             Image icon = new Image("icon.png");
             stage.getIcons().add(icon);
 
