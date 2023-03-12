@@ -157,17 +157,15 @@ public class MainMenuController {
 
     }
 
-    public void updateButton (ActionEvent event) throws IOException {
-
-
-
-
-    }
     public void deleteButton(ActionEvent event) throws IOException {
         String query = "DELETE FROM books WHERE ID="+id.getText()+"";
         executeQuery(query);
         showtasks();
     }
-
+    public void updateButton(ActionEvent event) throws IOException {
+        String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + ", SET task_Deadline ='" + deadline.getText()+ ", SET task_detail='" + taskdetails.getText() +"'" ;
+        executeQuery(query);
+        showtasks();
+    }
 
 }
