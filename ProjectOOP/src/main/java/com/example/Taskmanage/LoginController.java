@@ -2,7 +2,6 @@ package com.example.Taskmanage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -36,9 +35,16 @@ public class LoginController {
     private TextField password;
     @FXML
     private Label inputname, inputpass;
+
+
+    @FXML
+    TextField id;
     private String name, pass;
     DBconnect connectnow = new DBconnect();
     Connection connection = connectnow.getConnection();
+
+    // maninmenu
+    // textfeild
 
 
 
@@ -77,5 +83,5 @@ public class LoginController {
 
 
     public void delete(ActionEvent event) throws IOException {}
-    public void add (ActionEvent event) throws IOException {}
+    public void addButton(ActionEvent event) throws IOException {}
 }

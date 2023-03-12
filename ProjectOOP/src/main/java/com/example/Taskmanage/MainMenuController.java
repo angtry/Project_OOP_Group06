@@ -1,14 +1,48 @@
 package com.example.Taskmanage;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class MainMenuController extends LoginController{
+public class MainMenuController {
 
+    //textfield
+        @FXML
+        private TextField id;
+        @FXML
+        private TextField tasktitle;
+        @FXML
+        private TextField deadline;
+        @FXML
+        private TextField taskdetails;
+        //Buttons
+    @FXML
+    private Button addButton;
+    @FXML
+    private Button updateButton;
+    @FXML
+    private Button deleteButton;
 
+    // Table View
+    @FXML
+    TableView<Tasks> TableView;
+    // Table Colums
 
-    public void add (ActionEvent event) throws IOException {
+    @FXML
+    TableColumn<Tasks, int> idColumn;
+    @FXML
+    TableColumn<Tasks, String> tasktitleColumn;
+
+    @FXML
+    TableColumn<Tasks, String> deadlineColumn;
+    @FXML
+    TableColumn<Tasks, String> taskdetailColumn;
+    public void addButton(ActionEvent event) throws IOException {
 
         /*    String username = nameTextField.getText();
             // switch scene
@@ -46,10 +80,10 @@ public class MainMenuController extends LoginController{
         }
 */
 
-        listtask.getItems().add(nameTextField.getText());
-
     }
-    public void delete(ActionEvent event) throws IOException {}
+
+    public void updateButton (ActionEvent event) throws IOException {}
+    public void deleteButton(ActionEvent event) throws IOException {}
 
 
 }
