@@ -4,22 +4,55 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
     <children>
-        <VBox layoutX="300.0" prefHeight="400.0" prefWidth="301.0" style="-fx-background-color: gray;" />
-        <TextField fx:id="nameTextField" layoutX="36.0" layoutY="87.0" />
-        <Button fx:id="AddButton" layoutX="198.0" layoutY="87.0" mnemonicParsing="false" onAction="#add" text="Add" />
-        <Label layoutX="48.0" layoutY="46.0" text="Tasks name">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
-        <Button fx:id="deleteButton" layoutX="198.0" layoutY="136.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
-        <ListView fx:id="listtask" layoutX="331.0" layoutY="51.0" prefHeight="222.0" prefWidth="249.0" />
-        <Label layoutX="415.0" layoutY="14.0" text="List tasks" textFill="WHITE">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
+        <VBox layoutX="26.0" layoutY="22.0" spacing="15.0">
+            <children>
+                <Label text="ID">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Task Title">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Deadline">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="task details">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+        <VBox layoutX="106.0" layoutY="20.0" prefHeight="130.0" prefWidth="129.0" spacing="10.0">
+            <children>
+                <TextField fx:id="id" />
+                <TextField fx:id="tasktitle" />
+                <TextField fx:id="deadline" />
+                <TextField fx:id="taskdetails" />
+
+            </children>
+        </VBox>
+        <HBox layoutX="26.0" layoutY="202.0" spacing="10.0">
+            <children>
+                <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButton" prefHeight="30.0" prefWidth="60.0" text="Add" />
+                <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
+                <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
+            </children>
+        </HBox>
+        <TableView fx:id="TableView" layoutX="316.0" layoutY="28.0" prefHeight="210.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
+                <TableColumn fx:id="tasktitleColumn" prefWidth="120.0" text="Task Title" />
+                <TableColumn fx:id="deadlineColumn" prefWidth="120.0" text="Deadline" />
+                <TableColumn fx:id="taskdetailColumn" prefWidth="123.3333740234375" text="Task details" />
+            </columns>
+        </TableView>
     </children>
 </AnchorPane>

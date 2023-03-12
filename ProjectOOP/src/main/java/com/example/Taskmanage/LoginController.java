@@ -2,6 +2,7 @@ package com.example.Taskmanage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -56,6 +57,7 @@ public class LoginController {
                 showname.setText(queryOutput.getString("username"));
                 showpass.setText(queryOutput.getString("pass"));
             }
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -71,7 +73,6 @@ public class LoginController {
 
     }
     public void signup (ActionEvent event) throws IOException{
-
     }
 
 
