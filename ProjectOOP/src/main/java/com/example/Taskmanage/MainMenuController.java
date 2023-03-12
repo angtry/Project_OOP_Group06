@@ -163,7 +163,11 @@ public class MainMenuController {
 
 
     }
-    public void deleteButton(ActionEvent event) throws IOException {}
+    public void deleteButton(ActionEvent event) throws IOException {
+        String query = "DELETE FROM books WHERE ID="+id.getText()+"";
+        executeQuery(query);
+        showtasks();
+    }
 
 
 }
