@@ -79,9 +79,18 @@ public class LoginController {
 
     }
     public void signup (ActionEvent event) throws IOException{
+        switch scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+        root = loader.load();
+
+        Scene2Controller scene2Controller = loader.getController();
+        scene2Controller.displayName(username);
+
+        //root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
-
-    public void delete(ActionEvent event) throws IOException {}
-    public void addButton(ActionEvent event) throws IOException {}
 }

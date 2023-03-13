@@ -15,22 +15,18 @@ public class Tasks {
     }
 
     public int getId() {
-
         return id;
     }
 
     public String getTasktitle() {
-
         return tasktitle;
     }
 
     public String getDeadline() {
-
         return deadline;
     }
 
     public String getTaskDetail() {
-
         return taskDetail;
     }
 }

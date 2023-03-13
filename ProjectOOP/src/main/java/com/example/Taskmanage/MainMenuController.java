@@ -68,10 +68,9 @@ public class MainMenuController {
             //
             public void executeQuery(String query) {
                 Connection conn = getConnection();
-                Statement st;
                 try {
-                    st = conn.createStatement();
-                    st.executeUpdate(query);
+                    Statement statement = conn.createStatement();
+                    statement.executeUpdate(query);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -88,7 +87,7 @@ public class MainMenuController {
             rs = st.executeQuery(query);
             Tasks tasks;
             while(rs.next()) {
-                tasks = new Tasks(rs.getInt("id"),rs.getString("tasktitle"),rs.getString("deadline"),rs.getString("taskDetail"));
+                tasks = new Tasks(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
                 TasksList.add(tasks);
             }
         } catch (Exception e) {
@@ -115,23 +114,13 @@ public class MainMenuController {
 
     public void addButton(ActionEvent event) throws IOException {
 
-        String query = "insert into Tasks values("+id.getText()+",'" + tasktitle.getText()+"','"+deadline.getText()+"',"+taskdetails.getText()+");";
+        String query = "insert into Tasks values("+id.getText()+",'" + tasktitle.getText()+"','"+deadline.getText()+"','"+taskdetails.getText()+"');";
+      // String query = "insert into tasks value(2,'Angtry','try', 'try');";
         executeQuery(query);
         showtasks();
 
         /*    String username = nameTextField.getText();
-            // switch scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        root = loader.load();
 
-        Scene2Controller scene2Controller = loader.getController();
-        scene2Controller.displayName(username);
-
-        //root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
 */
 
     /*    String connectQuery = "select * from tasks;";
@@ -158,12 +147,12 @@ public class MainMenuController {
     }
 
     public void deleteButton(ActionEvent event) throws IOException {
-        String query = "DELETE FROM books WHERE ID="+id.getText()+"";
+        String query = "DELETE FROM tasks WHERE ID="+id.getText()+"";
         executeQuery(query);
         showtasks();
     }
     public void updateButton(ActionEvent event) throws IOException {
-        String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + ", SET task_Deadline ='" + deadline.getText()+ ", SET task_detail='" + taskdetails.getText() +"'" ;
+        String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + ", task_Deadline ='" + deadline.getText()+ ", task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
         executeQuery(query);
         showtasks();
     }
