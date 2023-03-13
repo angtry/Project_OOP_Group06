@@ -4,10 +4,8 @@ import java.sql.DriverManager;
 
 public class DBconnect {
     public Connection databaselink;
-    public Connection getConnection() {
-        String DBname = "users";
-        String DBUser = "root";
-        String DBPass = "Astrowizd47##";
+    public Connection getConnection(String DBname,String DBUser,String DBPass) {
+
         String url = "jdbc:mysql://localhost/" + DBname;
 
         try {

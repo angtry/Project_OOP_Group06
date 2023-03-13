@@ -2,18 +2,16 @@ package com.example.Taskmanage;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class MainMenuController implements Initializable {
@@ -50,14 +48,16 @@ public class MainMenuController implements Initializable {
     @FXML
     TableColumn<Tasks, String> taskdetailColumn;
 
+    LocalDate localDate;
+
 
         // -----Functions-----//
 
-            //Databse
-        public Connection getConnection() {
+            //Database Query
+       /* public Connection getConnection() {
             Connection conn;
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Tasks","root","Astrowizd47##");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Tasks","root","1234");
                 return conn;
             }
             catch (Exception e){
@@ -65,25 +65,30 @@ public class MainMenuController implements Initializable {
                 return null;
             }
         }
-            //
+
+
+         */
+            DBconnect connectnow = new DBconnect();
+            Connection connectiontask = connectnow.getConnection("tasks","root","1234");
             public void executeQuery(String query) {
-                Connection conn = getConnection();
+
                 try {
-                    Statement statement = conn.createStatement();
+                    Statement statement = connectiontask.createStatement();
                     statement.executeUpdate(query);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+
     public ObservableList<Tasks> getTasks(){
         ObservableList<Tasks> TasksList = FXCollections.observableArrayList();
-        Connection connection = getConnection();
+        //Connection connectiontask = getConnection();
         String query = "SELECT * FROM Tasks ";
         Statement st;
         ResultSet rs;
 
         try {
-            st = connection.createStatement();
+            st = connectiontask.createStatement();
             rs = st.executeQuery(query);
             Tasks tasks;
             while(rs.next()) {
@@ -107,11 +112,7 @@ public class MainMenuController implements Initializable {
         TableView.setItems(list);
     }
 
-
-
-
-
-
+        // Buttons
     public void addButton() {
 
         String query = "insert into Tasks values("+id.getText()+",'" + tasktitle.getText()+"','"+deadline.getValue()+"','"+taskdetails.getText()+"');";
@@ -121,14 +122,13 @@ public class MainMenuController implements Initializable {
 
         /*    String username = nameTextField.getText();
 
-*/
 
-    /*    String connectQuery = "select * from tasks;";
+        String connectQuery = "select * from tasks;";
         String AddQuery = "insert into tasks value(1,1,'JavaFX',curdate());";
 
         String listQuery = "select task_name from tasks;";
         try{
-            Statement statement = connection.createStatement();
+            Statement statement = connectiontask.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
             ResultSet AddQueryOutput = statement.executeQuery(AddQuery);
             ResultSet Listtaskoutput = statement.executeQuery(listQuery);
@@ -155,6 +155,12 @@ public class MainMenuController implements Initializable {
         String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + "', task_Deadline ='" + deadline.getValue()+ "', task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
         executeQuery(query);
         showtasks();
+    }
+    public void cleartextfield(){
+                id.setText("");
+                tasktitle.setText("");
+                deadline.setValue(localDate);
+                taskdetails.setText("");
     }
     public void initialize(URL location, ResourceBundle resources) {
         showtasks();
