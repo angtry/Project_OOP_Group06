@@ -152,7 +152,7 @@ public class MainMenuController implements Initializable {
         showtasks();
     }
     public void updateButton(){
-        String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + ", task_Deadline ='" + deadline.getValue()+ ", task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
+        String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + "', task_Deadline ='" + deadline.getValue()+ "', task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
         executeQuery(query);
         showtasks();
     }
