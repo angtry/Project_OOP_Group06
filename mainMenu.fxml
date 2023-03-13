@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.MainMenuController">
+
+        <VBox layoutX="262.0" layoutY="24.0" spacing="15.0">
+
+                <Label text="ID">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Task Title">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Deadline">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="task details">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+
+        </VBox>
+        <VBox layoutX="342.0" layoutY="22.0" prefHeight="130.0" prefWidth="129.0" spacing="10.0">
+
+                <TextField fx:id="id" />
+                <TextField fx:id="tasktitle" />
+                <TextField fx:id="deadline" />
+                <TextField fx:id="taskdetails" prefHeight="25.0" prefWidth="188.0" />
+
+
+        </VBox>
+        <HBox layoutX="26.0" layoutY="202.0" spacing="10.0" />
+        <TableView fx:id="TableView" layoutX="99.0" layoutY="176.0" prefHeight="213.0" prefWidth="401.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
+                <TableColumn fx:id="tasktitleColumn" prefWidth="120.0" text="Task Title" />
+                <TableColumn fx:id="deadlineColumn" prefWidth="120.0" text="Deadline" />
+                <TableColumn fx:id="taskdetailColumn" prefWidth="123.3333740234375" text="Task details" />
+            </columns>
+        </TableView>
+          <Button fx:id="deleteButton" layoutX="507.0" layoutY="124.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
+          <Button fx:id="updateButton" layoutX="507.0" layoutY="77.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
+          <Button fx:id="addButton" layoutX="507.0" layoutY="30.0" mnemonicParsing="false" onAction="#addButton" prefHeight="30.0" prefWidth="60.0" text="Add" />
+      <ImageView fitHeight="143.0" fitWidth="164.0" layoutX="26.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@CADT.png" />
+
+      </ImageView>
+
+</AnchorPane>
