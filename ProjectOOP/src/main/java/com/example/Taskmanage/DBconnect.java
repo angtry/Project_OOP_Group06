@@ -7,7 +7,7 @@ public class DBconnect {
     public Connection getConnection() {
         String DBname = "users";
         String DBUser = "root";
-        String DBPass = "1234";
+        String DBPass = "Astrowizd47##";
         String url = "jdbc:mysql://localhost/" + DBname;
 
         try {

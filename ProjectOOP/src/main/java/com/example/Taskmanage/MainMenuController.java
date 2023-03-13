@@ -57,7 +57,7 @@ public class MainMenuController implements Initializable {
         public Connection getConnection() {
             Connection conn;
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Tasks","root","1234");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Tasks","root","Astrowizd47##");
                 return conn;
             }
             catch (Exception e){
@@ -75,7 +75,7 @@ public class MainMenuController implements Initializable {
                     e.printStackTrace();
                 }
             }
-    public ObservableList<Tasks> getBooksList(){
+    public ObservableList<Tasks> getTasks(){
         ObservableList<Tasks> TasksList = FXCollections.observableArrayList();
         Connection connection = getConnection();
         String query = "SELECT * FROM Tasks ";
@@ -97,7 +97,7 @@ public class MainMenuController implements Initializable {
     }
 
     public void showtasks() {
-        ObservableList<Tasks> list = getBooksList();
+        ObservableList<Tasks> list = getTasks();
 
         idColumn.setCellValueFactory(new PropertyValueFactory<Tasks,Integer>("id"));
         tasktitleColumn.setCellValueFactory(new PropertyValueFactory<Tasks,String>("tasktitle"));
