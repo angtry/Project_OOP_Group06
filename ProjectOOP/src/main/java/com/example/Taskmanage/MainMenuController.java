@@ -4,16 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class MainMenuController {
+public class MainMenuController implements Initializable {
 
     //textfield
         @FXML
@@ -151,6 +154,9 @@ public class MainMenuController {
     public void updateButton(){
         String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + ", task_Deadline ='" + deadline.getValue()+ ", task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
         executeQuery(query);
+        showtasks();
+    }
+    public void initialize(URL location, ResourceBundle resources) {
         showtasks();
     }
 
