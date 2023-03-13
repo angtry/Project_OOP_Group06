@@ -2,6 +2,10 @@ package com.example.Taskmanage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -47,50 +51,51 @@ public class LoginController {
     // textfeild
 
 
-
     private Stage stage;
+    private Scene scene;
+    private Parent root;
 
 
-    public void connectDB (ActionEvent event) throws IOException{
+    public void connectDB(ActionEvent event) throws IOException {
 
 
         String connectQuery = "select * from users;";
-        try{
+        try {
             Statement statement = connection.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
 
-            while(queryOutput.next()){
+            while (queryOutput.next()) {
                 showname.setText(queryOutput.getString("username"));
                 showpass.setText(queryOutput.getString("pass"));
             }
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    public void login (ActionEvent event) throws IOException{
+    public void login()  {
         inputname.setText(username.getText());
         inputpass.setText(password.getText());
 
 
-
     }
-    public void signup (ActionEvent event) throws IOException{
-        switch scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        root = loader.load();
 
-        Scene2Controller scene2Controller = loader.getController();
-        scene2Controller.displayName(username);
+    public void signup(ActionEvent event) throws IOException {
+        //switch scene
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+       // root = loader.load();
 
-        //root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+        //MainMenuController mainMenuController = loader.getController();
+
+
+        root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
 
 }

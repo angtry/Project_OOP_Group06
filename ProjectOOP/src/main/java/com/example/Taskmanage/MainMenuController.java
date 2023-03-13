@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -24,7 +21,7 @@ public class MainMenuController {
         @FXML
         private TextField tasktitle;
         @FXML
-        private TextField deadline;
+        private DatePicker deadline;
         @FXML
         private TextField taskdetails;
         //Buttons
@@ -112,9 +109,9 @@ public class MainMenuController {
 
 
 
-    public void addButton(ActionEvent event) throws IOException {
+    public void addButton() {
 
-        String query = "insert into Tasks values("+id.getText()+",'" + tasktitle.getText()+"','"+deadline.getText()+"','"+taskdetails.getText()+"');";
+        String query = "insert into Tasks values("+id.getText()+",'" + tasktitle.getText()+"','"+deadline.getValue()+"','"+taskdetails.getText()+"');";
       // String query = "insert into tasks value(2,'Angtry','try', 'try');";
         executeQuery(query);
         showtasks();
@@ -146,13 +143,13 @@ public class MainMenuController {
 
     }
 
-    public void deleteButton(ActionEvent event) throws IOException {
-        String query = "DELETE FROM tasks WHERE ID="+id.getText()+"";
+    public void deleteButton() {
+        String query = "DELETE FROM tasks WHERE task_id="+id.getText()+"";
         executeQuery(query);
         showtasks();
     }
-    public void updateButton(ActionEvent event) throws IOException {
-        String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + ", task_Deadline ='" + deadline.getText()+ ", task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
+    public void updateButton(){
+        String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + ", task_Deadline ='" + deadline.getValue()+ ", task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
         executeQuery(query);
         showtasks();
     }

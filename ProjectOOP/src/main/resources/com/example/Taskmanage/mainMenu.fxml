@@ -35,7 +35,7 @@
 
                 <TextField fx:id="id" />
                 <TextField fx:id="tasktitle" />
-                <TextField fx:id="deadline" />
+      <DatePicker fx:id="deadline" />
                 <TextField fx:id="taskdetails" prefHeight="25.0" prefWidth="188.0" />
 
 
