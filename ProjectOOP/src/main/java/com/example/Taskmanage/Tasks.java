@@ -4,14 +4,14 @@ public class Tasks {
     private int id;
     private String tasktitle;
     private String deadline;
-    private String taskDetail;
+    private String taskdetail;
 
     public Tasks(){}
-    public Tasks(int id, String tasktitle, String deadline, String taskDetail) {
+    public Tasks(int id, String tasktitle, String deadline, String taskdetail) {
         this.id = id;
         this.tasktitle = tasktitle;
         this.deadline = deadline;
-        this.taskDetail = taskDetail;
+        this.taskdetail = taskdetail;
     }
 
     public int getId() {
@@ -26,7 +26,7 @@ public class Tasks {
         return deadline;
     }
 
-    public String getTaskDetail() {
-        return taskDetail;
+    public String getTaskdetail() {
+        return taskdetail;
     }
 }
