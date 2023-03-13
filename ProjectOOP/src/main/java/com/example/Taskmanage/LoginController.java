@@ -98,4 +98,10 @@ public class LoginController {
     }
 
 
+    public void SignInWithGoogle(ActionEvent actionEvent) {
+    }
+    public void SignInWithFacebook(ActionEvent actionEvent) {
+    }
+    public void SignInWithAppleID(ActionEvent actionEvent) {
+    }
 }
