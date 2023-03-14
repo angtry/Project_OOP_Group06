@@ -8,12 +8,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.LoginController">
     <children>
       <VBox layoutX="300.0" prefHeight="400.0" prefWidth="301.0" style="-fx-background-color: gray;" />
-      <Button fx:id="connect" layoutX="83.0" layoutY="220.0" mnemonicParsing="false" onAction="#connectDB" text="show" />
-      <Label fx:id="showpass" layoutX="72.0" layoutY="295.0" text="forget password?">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
+      <Button fx:id="connect" layoutX="92.0" layoutY="138.0" mnemonicParsing="false" onAction="#connectDB" text="show" />
 
         <Label layoutX="379.0" layoutY="35.0" prefHeight="37.0" prefWidth="183.0" text="Log in / Sign in " textFill="WHITE">
             <font>
@@ -21,16 +16,18 @@
             </font>
         </Label>
         <Group layoutX="328.0" layoutY="99.0">
-            <Label layoutY="4.0" text="Username" textFill="WHITE" />
+            <Label layoutY="4.0" prefHeight="46.0" prefWidth="67.0" text="Username" textFill="WHITE" />
             <Label layoutY="57.0" text="Password" textFill="WHITE" />
-            <TextField fx:id="username" layoutX="88.0" />
+            <TextField fx:id="username" layoutX="88.0" layoutY="14.0" />
             <TextField fx:id="password" layoutX="88.0" layoutY="53.0" />
         </Group>
-        <Button fx:id="loginbutton" defaultButton="true" layoutX="360.0" layoutY="213.0" mnemonicParsing="false" onAction="#login" text="Login" />
-        <Button fx:id="signup" layoutX="480.0" layoutY="213.0" mnemonicParsing="false" onAction="#signup" text="Sign up" />
-        <Button fx:id="SignInWithGoogle" defaultButton="true" layoutX="390.0" layoutY="250.0" mnemonicParsing="false" onAction="#SignInWithGoogle" text="Sign Up With Google" />
-        <Button fx:id="SignInWithFacebook" defaultButton="true" layoutX="390.0" layoutY="280.0" mnemonicParsing="false" onAction="#SignInWithFacebook" text="Sign Up With Facebook ?" />
-        <Button fx:id="SignInWithAppleID" defaultButton="true" layoutX="390.0" layoutY="310.0" mnemonicParsing="false" onAction="#SignInWithAppleID" text="Sign Up With AppleID ?" />
+        <Button fx:id="signup" layoutX="480.0" layoutY="308.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="85.0" text="Sign up" />
+      <Label fx:id="showpass" layoutX="418.0" layoutY="180.0" prefHeight="17.0" prefWidth="121.0" text="forget password?" textFill="#f9f8f8">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+        <Button fx:id="loginbutton" defaultButton="true" layoutX="356.0" layoutY="308.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="85.0" text="Login" />
 
     </children>
 
