@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.MainMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="707.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.MainMenuController">
 
         <VBox layoutX="262.0" layoutY="24.0" spacing="15.0">
 
@@ -41,20 +50,32 @@
 
         </VBox>
         <HBox layoutX="26.0" layoutY="202.0" spacing="10.0" />
-        <TableView fx:id="TableView" layoutX="99.0" layoutY="176.0" prefHeight="213.0" prefWidth="401.0">
+        <TableView fx:id="TableView" layoutX="115.0" layoutY="196.0" prefHeight="213.0" prefWidth="534.0">
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
                 <TableColumn fx:id="tasktitleColumn" prefWidth="120.0" text="Task Title" />
                 <TableColumn fx:id="deadlineColumn" prefWidth="120.0" text="Deadline" />
-                <TableColumn fx:id="taskdetailColumn" prefWidth="123.3333740234375" text="Task details" />
+                <TableColumn fx:id="taskdetailColumn" prefWidth="254.66671752929688" text="Task details" />
             </columns>
         </TableView>
-          <Button fx:id="deleteButton" layoutX="507.0" layoutY="124.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
-          <Button fx:id="updateButton" layoutX="507.0" layoutY="77.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
-          <Button fx:id="addButton" layoutX="507.0" layoutY="30.0" mnemonicParsing="false" onAction="#addButton" prefHeight="30.0" prefWidth="60.0" text="Add" />
-      <ImageView fitHeight="143.0" fitWidth="164.0" layoutX="26.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+          <Button fx:id="deleteButton" layoutX="540.0" layoutY="122.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
+          <Button fx:id="updateButton" layoutX="540.0" layoutY="75.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
+          <Button fx:id="addButton" layoutX="540.0" layoutY="28.0" mnemonicParsing="false" onAction="#addButton" prefHeight="30.0" prefWidth="60.0" text="Add" />
+      <ImageView fitHeight="143.0" fitWidth="164.0" layoutX="84.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@CADT.png" />
 
       </ImageView>
+   <Button fx:id="cleartextfield" layoutX="478.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="Clear" textFill="#ff8b0e" />
+   <VBox alignment="CENTER" layoutY="432.0" prefHeight="34.0" prefWidth="706.0" style="-fx-background-color: gray;">
+      <children>
+         <Label text="Create by Group 06 : Ket Kalim, Chhea Angtry, Dy Bophaseamreap, An Rasy" textAlignment="CENTER" textFill="WHITE" />
+      </children>
+   </VBox>
+   <CheckBox layoutX="266.0" layoutY="166.0" mnemonicParsing="false" text="Add to Priority Tasks Lists" />
+   <AnchorPane prefHeight="432.0" prefWidth="60.0" style="-fx-background-color: gray;">
+      <children>
+         <Button layoutX="12.0" layoutY="328.0" mnemonicParsing="false" text="Log out" />
+      </children>
+   </AnchorPane>
 
 </AnchorPane>

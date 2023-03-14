@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.LoginController">
     <children>
       <VBox layoutX="300.0" prefHeight="400.0" prefWidth="301.0" style="-fx-background-color: gray;" />
-      <Button fx:id="connect" layoutX="83.0" layoutY="220.0" mnemonicParsing="false" onAction="#connectDB" text="show" />
-      <Label fx:id="showpass" layoutX="140.0" layoutY="178.0" text="Showpass">
+      <Button fx:id="connect" layoutX="81.0" layoutY="335.0" mnemonicParsing="false" onAction="#connectDB" text="Connect" />
+      <Label fx:id="message" layoutX="72.0" layoutY="295.0" text="Message">
          <font>
             <Font size="20.0" />
          </font>
@@ -28,9 +31,6 @@
         </Group>
         <Button fx:id="loginbutton" defaultButton="true" layoutX="360.0" layoutY="213.0" mnemonicParsing="false" onAction="#login" text="Login" />
         <Button fx:id="signup" layoutX="480.0" layoutY="213.0" mnemonicParsing="false" onAction="#signup" text="Sign up" />
-        <Button fx:id="SignInWithGoogle" defaultButton="true" layoutX="390.0" layoutY="250.0" mnemonicParsing="false" onAction="#SignInWithGoogle" text="Sign Up With Google ?" />
-        <Button fx:id="SignInWithFacebook" defaultButton="true" layoutX="390.0" layoutY="280.0" mnemonicParsing="false" onAction="#SignInWithFacebook" text="Sign Up With Facebook ?" />
-        <Button fx:id="SignInWithAppleID" defaultButton="true" layoutX="390.0" layoutY="310.0" mnemonicParsing="false" onAction="#SignInWithAppleID" text="Sign Up With AppleID ?" />
 
     </children>
 
