@@ -132,8 +132,11 @@ public class LoginController {
            // root = loader.load();
 
             //MainMenuController mainMenuController = loader.getController();
+            stage.close();
 
 
+        }
+        public void exit(){
 
         }
 

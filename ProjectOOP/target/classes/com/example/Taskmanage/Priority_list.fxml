@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="665.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.MainMenuController">
+    <TableView fx:id="TableView" layoutX="65.0" layoutY="126.0" prefHeight="213.0" prefWidth="534.0">
+        <columns>
+            <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
+            <TableColumn fx:id="tasktitleColumn" prefWidth="120.0" text="Task Title" />
+            <TableColumn fx:id="deadlineColumn" prefWidth="120.0" text="Deadline" />
+            <TableColumn fx:id="taskdetailColumn" prefWidth="254.66671752929688" text="Task details" />
+        </columns>
+    </TableView>
+    <Button fx:id="SignOutButton" layoutX="507.0" layoutY="372.0" mnemonicParsing="false" onAction="#SignOutButton" prefHeight="30.0" prefWidth="69.0" text="SignOut" />
+   <Label layoutX="25.0" layoutY="39.0" text="Priority List">
+      <font>
+         <Font name="System Bold Italic" size="38.0" />
+      </font>
+   </Label>
+
+</AnchorPane>

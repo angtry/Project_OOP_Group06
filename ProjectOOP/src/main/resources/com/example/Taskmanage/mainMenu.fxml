@@ -65,7 +65,7 @@
             <Image url="@CADT.png" />
 
       </ImageView>
-   <Button fx:id="cleartextfield" layoutX="478.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="Clear" textFill="#ff8b0e" />
+   <Button fx:id="cleartextfield" layoutX="478.0" layoutY="162.0" mnemonicParsing="false" onAction="#cleartextfield" prefHeight="25.0" prefWidth="129.0" text="Clear" textFill="#ff8b0e" />
    <VBox alignment="CENTER" layoutY="432.0" prefHeight="34.0" prefWidth="706.0" style="-fx-background-color: gray;">
       <children>
          <Label text="Create by Group 06 : Ket Kalim, Chhea Angtry, Dy Bophaseamreap, An Rasy" textAlignment="CENTER" textFill="WHITE" />

@@ -138,6 +138,7 @@ public class MainMenuController implements Initializable {
             ResultSet Listtaskoutput = statement.executeQuery(listQuery);
 
 
+
             while(queryOutput.next()){
                 System.out.println(Listtaskoutput);
 
@@ -161,10 +162,10 @@ public class MainMenuController implements Initializable {
         showtasks();
     }
     public void cleartextfield(){
-                id.setText("");
-                tasktitle.setText("");
-                deadline.setValue(localDate);
-                taskdetails.setText("");
+                id.setText(null);
+                tasktitle.setText(null);
+                deadline.setValue(null);
+                taskdetails.setText(null);
     }
     public void initialize(URL location, ResourceBundle resources) {
         showtasks();

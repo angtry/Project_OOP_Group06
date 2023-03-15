@@ -31,6 +31,7 @@
         </Group>
         <Button fx:id="loginbutton" defaultButton="true" layoutX="360.0" layoutY="213.0" mnemonicParsing="false" onAction="#login" text="Login" />
         <Button fx:id="signup" layoutX="480.0" layoutY="213.0" mnemonicParsing="false" onAction="#signup" text="Sign up" />
+      <Button fx:id="exitbutton" layoutX="404.0" layoutY="303.0" mnemonicParsing="false" onAction="#exit" text="Exit the Program" />
 
     </children>
 
