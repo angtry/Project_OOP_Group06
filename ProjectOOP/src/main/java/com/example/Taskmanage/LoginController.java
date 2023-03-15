@@ -126,15 +126,13 @@ public class LoginController {
             }
         }
 
-        public void signup()  {
-            //switch scene
-            //FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-           // root = loader.load();
-
-            //MainMenuController mainMenuController = loader.getController();
-
-
-
+        public void signup(ActionEvent signup) throws  IOException{
+            //switch to signup.fxml
+            root = FXMLLoader.load(getClass().getResource("signup.fxml"));
+            stage = (Stage) ((Node) signup.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
         public void exit() {
 

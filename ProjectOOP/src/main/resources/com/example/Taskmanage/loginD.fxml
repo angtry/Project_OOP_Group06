@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.LoginController" >
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.LoginController">
    <children>
       <AnchorPane layoutY="7.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -38,12 +38,12 @@
                   <Font name="Doulos SIL" size="36.0" />
                </font>
             </Text>
-            <Button fx:id="signup" layoutX="71.0" layoutY="277.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #F2C12E;" text="Create Account">
+            <Button fx:id="signup" layoutX="66.0" layoutY="277.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #F2C12E;" text="Create Account">
                <font>
                   <Font name="Calibri Light" size="11.0" />
                </font>
             </Button>
-            <Button fx:id="closeprogram" layoutX="132.0" layoutY="374.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #F2C12E;" text="Exit" textAlignment="CENTER">
+            <Button fx:id="closeprogram" layoutX="125.0" layoutY="355.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #F2C12E;" text="Exit" textAlignment="CENTER">
                <font>
                   <Font name="Calibri Light" size="11.0" />
                </font>
@@ -64,7 +64,7 @@
                   <Font name="Gill Sans MT Condensed" size="35.0" />
                </font>
             </Text>
-            <Button fx:id="Login" layoutX="169.0" layoutY="276.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #F2C12E;" text="Login">
+            <Button fx:id="Login" defaultButton="true" layoutX="182.0" layoutY="277.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #F2C12E;" text="Login">
                <font>
                   <Font name="Calibri Light" size="11.0" />
                </font>
