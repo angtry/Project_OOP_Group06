@@ -17,13 +17,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("signup1.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("loginD.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Tasks Management");
             stage.show();
             stage.setResizable(false);
-            Image icon = new Image("icon.png");
+            Image icon = new Image("logo.png");
             stage.getIcons().add(icon);
 
         } catch(Exception e) {

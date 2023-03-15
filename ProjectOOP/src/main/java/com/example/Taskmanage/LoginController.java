@@ -43,7 +43,7 @@ public class LoginController {
     TextField id;
     private String name, pass;
     DBconnect connectnow = new DBconnect();
-    Connection connection = connectnow.getConnection("Tasks","root","Astrowizd47##");
+    Connection connection = connectnow.getConnection("Users","root","1234");
 
     // maninmenu
     // textfeild
@@ -66,7 +66,7 @@ public class LoginController {
                 //message.setText("DB Connect success !");
                 String Dbname = queryOutput.getString("username");
                 String Dbpass = queryOutput.getString("pass");
-                message.setText(Dbname);
+               // message.setText(Dbname);
             }
 
         } catch (Exception e) {
@@ -92,7 +92,7 @@ public class LoginController {
                     //message.setText("DB Connect success !");
                     String Dbname = queryOutput.getString("username");
                     String Dbpass = queryOutput.getString("pass");
-                    message.setText(Dbname);
+                   // message.setText(Dbname);
 
                     if (userinput.isEmpty() && passinput.isEmpty()) {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -132,11 +132,11 @@ public class LoginController {
            // root = loader.load();
 
             //MainMenuController mainMenuController = loader.getController();
-            stage.close();
+
 
 
         }
-        public void exit(){
+        public void exit() {
 
         }
 

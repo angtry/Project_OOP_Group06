@@ -4,9 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -36,6 +41,9 @@ public class MainMenuController implements Initializable {
     private Button updateButton;
     @FXML
     private Button deleteButton;
+    @FXML
+    private Button logout;
+
 
     // Table View
     @FXML
@@ -73,7 +81,7 @@ public class MainMenuController implements Initializable {
 
          */
             DBconnect connectnow = new DBconnect();
-            Connection connectiontask = connectnow.getConnection("tasks","root","Astrowizd7##");
+            Connection connectiontask = connectnow.getConnection("tasks","root","1234");
             public void executeQuery(String query) {
 
                 try {
@@ -167,6 +175,23 @@ public class MainMenuController implements Initializable {
                 deadline.setValue(null);
                 taskdetails.setText(null);
     }
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void logout(ActionEvent logout) throws IOException{
+        System.out.println("logout");
+        root = FXMLLoader.load(getClass().getResource("loginD.fxml"));
+        stage = (Stage) ((Node) logout.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+
+
     public void initialize(URL location, ResourceBundle resources) {
         showtasks();
     }

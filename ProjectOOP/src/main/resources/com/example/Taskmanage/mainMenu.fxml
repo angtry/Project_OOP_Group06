@@ -74,7 +74,7 @@
    <CheckBox layoutX="266.0" layoutY="166.0" mnemonicParsing="false" text="Add to Priority Tasks Lists" />
    <AnchorPane prefHeight="432.0" prefWidth="60.0" style="-fx-background-color: gray;">
       <children>
-         <Button layoutX="12.0" layoutY="328.0" mnemonicParsing="false" text="Log out" />
+         <Button fx:id="logout" layoutX="12.0" layoutY="328.0" mnemonicParsing="false" onAction="#logout" text="Log out" />
       </children>
    </AnchorPane>
 

@@ -9,8 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.SignUpController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.LoginController" >
    <children>
       <AnchorPane layoutY="7.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -31,20 +30,20 @@
             </Text>
          </children>
       </AnchorPane>
-      <Pane layoutX="288.0" prefHeight="414.0" prefWidth="311.0" style="-fx-background-color: rgb(47, 169, 255);">
+      <Pane layoutX="291.0" prefHeight="414.0" prefWidth="311.0" style="-fx-background-color: rgb(47, 169, 255);">
          <children>
-            <TextField layoutX="64.0" layoutY="174.0" prefHeight="26.0" prefWidth="187.0" style="-fx-border-radius: 10x; -fx-background-radius: b;" />
+            <TextField fx:id="username" layoutX="64.0" layoutY="174.0" prefHeight="26.0" prefWidth="187.0" style="-fx-border-radius: 10x;" />
             <Text fill="WHITE" fontSmoothingType="LCD" layoutX="83.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="10.0" text="Welcome!" wrappingWidth="168.80337524414062">
                <font>
                   <Font name="Doulos SIL" size="36.0" />
                </font>
             </Text>
-            <Button layoutX="71.0" layoutY="277.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #F2C12E; -fx-background-radius: 15px;" text="Create Account">
+            <Button fx:id="signup" layoutX="71.0" layoutY="277.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #F2C12E;" text="Create Account">
                <font>
                   <Font name="Calibri Light" size="11.0" />
                </font>
             </Button>
-            <Button layoutX="132.0" layoutY="374.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #F2C12E; -fx-background-radius: 15px;" styleClass="border" text="Exit" textAlignment="CENTER">
+            <Button fx:id="closeprogram" layoutX="132.0" layoutY="374.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #F2C12E;" text="Exit" textAlignment="CENTER">
                <font>
                   <Font name="Calibri Light" size="11.0" />
                </font>
@@ -59,13 +58,13 @@
                   <Font name="Doulos SIL" size="13.0" />
                </font>
             </Text>
-            <TextField layoutX="65.0" layoutY="235.0" prefHeight="26.0" prefWidth="187.0" style="-fx-border-radius: 10x; -fx-background-radius: b;" />
+            <TextField fx:id="password" layoutX="65.0" layoutY="235.0" prefHeight="26.0" prefWidth="187.0" style="-fx-border-radius: 10x;" />
             <Text fill="WHITE" fontSmoothingType="LCD" layoutX="71.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="10.0" text="Login" textAlignment="CENTER" wrappingWidth="168.80337524414062">
                <font>
                   <Font name="Gill Sans MT Condensed" size="35.0" />
                </font>
             </Text>
-            <Button layoutX="169.0" layoutY="276.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #F2C12E; -fx-background-radius: 15px;" text="Login">
+            <Button fx:id="Login" layoutX="169.0" layoutY="276.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #F2C12E;" text="Login">
                <font>
                   <Font name="Calibri Light" size="11.0" />
                </font>
