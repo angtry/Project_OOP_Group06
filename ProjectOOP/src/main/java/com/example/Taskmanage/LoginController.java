@@ -43,7 +43,7 @@ public class LoginController {
     TextField id;
     private String name, pass;
     DBconnect connectnow = new DBconnect();
-    Connection connection = connectnow.getConnection("Users","root","1234");
+    Connection connection = connectnow.getConnection("Tasks","root","Astrowizd47##");
 
     // maninmenu
     // textfeild

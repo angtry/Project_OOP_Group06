@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="switchscene" options="--add-exports java.datatransfer/java.awt=com.example.switchscene" />
+      <module name="switchscene" options="" />
     </option>
   </component>
 </project>

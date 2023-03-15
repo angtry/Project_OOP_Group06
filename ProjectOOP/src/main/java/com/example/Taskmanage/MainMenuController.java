@@ -73,7 +73,7 @@ public class MainMenuController implements Initializable {
 
          */
             DBconnect connectnow = new DBconnect();
-            Connection connectiontask = connectnow.getConnection("tasks","root","1234");
+            Connection connectiontask = connectnow.getConnection("tasks","root","Astrowizd7##");
             public void executeQuery(String query) {
 
                 try {
