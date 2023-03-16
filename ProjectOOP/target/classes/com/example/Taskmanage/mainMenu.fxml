@@ -55,7 +55,8 @@
                 <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
                 <TableColumn fx:id="tasktitleColumn" prefWidth="120.0" text="Task Title" />
                 <TableColumn fx:id="deadlineColumn" prefWidth="120.0" text="Deadline" />
-                <TableColumn fx:id="taskdetailColumn" prefWidth="254.66671752929688" text="Task details" />
+                <TableColumn fx:id="taskdetailColumn" prefWidth="106.0" text="Task details" />
+         <TableColumn fx:id="userColumn" minWidth="8.6666259765625" prefWidth="85.99996948242188" text="User" />
             </columns>
         </TableView>
           <Button fx:id="deleteButton" layoutX="505.0" layoutY="112.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
@@ -69,7 +70,8 @@
    <CheckBox layoutX="239.0" layoutY="159.0" mnemonicParsing="false" text="Add to Priority Tasks Lists" />
    <AnchorPane layoutX="-5.0" prefHeight="400.0" prefWidth="55.0" style="-fx-background-color: gray;">
       <children>
-         <Button fx:id="logout" layoutX="12.0" layoutY="328.0" mnemonicParsing="false" onAction="#logout" text="Log out" />
+         <Button fx:id="logout" layoutX="6.0" layoutY="334.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="55.0" text="Log out" />
+         <Label layoutX="24.0" layoutY="300.0" text="Label" />
       </children>
    </AnchorPane>
    <Label layoutX="88.0" layoutY="175.0" text="Create by Group 06" textAlignment="CENTER" />

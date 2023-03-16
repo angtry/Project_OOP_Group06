@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-public class LoginController {
+public class LoginController extends DBconnect {
 
     @FXML
     TextField nameTextField;
@@ -42,8 +42,7 @@ public class LoginController {
     @FXML
     TextField id;
     private String name, pass;
-    DBconnect connectnow = new DBconnect();
-    Connection connection = connectnow.getConnection("Users","root","1234");
+
 
     // maninmenu
     // textfeild
@@ -55,7 +54,6 @@ public class LoginController {
 
 
     public void connectDB(ActionEvent event) throws IOException {
-
 
         String connectQuery = "select * from users;";
         try {
@@ -75,12 +73,13 @@ public class LoginController {
 
     }
 
-        public void login(ActionEvent event) throws IOException  {
+        public void login(ActionEvent event) throws Exception  {
+
             //inputname.setText(username.getText());
             //inputpass.setText(password.getText());
             String userinput = username.getText();
             String passinput = password.getText();
-
+            boolean checkUP = false;
             //System.out.println(user);
 
             String connectQuery = "select * from users;";
@@ -94,33 +93,36 @@ public class LoginController {
                     String Dbpass = queryOutput.getString("pass");
                    // message.setText(Dbname);
 
-                    if (userinput.isEmpty() && passinput.isEmpty()) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error Message");
-                        alert.setContentText("The username and password are empty.");
-                        alert.showAndWait();
-                        //alert.setGraphic(new ImageView(this.getClass().getResource("")));
-                        //alert.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
-
-                        System.out.println("Input Your username and password. ");
-
-                    } else if (Dbname.equals(userinput) && Dbpass.equals(passinput) ) {
-                        System.out.println("Correct");
-                        root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
-                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    } else {
-                        System.out.println("Notcoreect");
-
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error Login");
-                        alert.setContentText("The username or password are Incorrect.");
-                        alert.showAndWait();
+                    if(Dbname.equals(userinput) && Dbpass.equals(passinput)){
+                        checkUP = true;
+                        break;
                     }
                 }
+                if (userinput.isEmpty() && passinput.isEmpty()) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Message");
+                    alert.setContentText("The username and password are empty.");
+                    alert.showAndWait();
+                    //alert.setGraphic(new ImageView(this.getClass().getResource("")));
+                    //alert.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
 
+                    System.out.println("Input Your username and password. ");
+
+                } else if (checkUP)  {
+                    System.out.println("Correct");
+                    root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } else {
+                    System.out.println("Notcoreect");
+
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Login");
+                    alert.setContentText("The username or password are Incorrect.");
+                    alert.showAndWait();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -137,6 +139,8 @@ public class LoginController {
         public void exit() {
 
         }
+
+
 
 
 

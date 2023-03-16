@@ -5,13 +5,15 @@ public class Tasks {
     private String tasktitle;
     private String deadline;
     private String taskdetail;
+    private int user;
 
     public Tasks(){}
-    public Tasks(int id, String tasktitle, String deadline, String taskdetail) {
+    public Tasks(int id, String tasktitle, String deadline, String taskdetail ,int user) {
         this.id = id;
         this.tasktitle = tasktitle;
         this.deadline = deadline;
         this.taskdetail = taskdetail;
+        this.user = user;
     }
 
     public int getId() {

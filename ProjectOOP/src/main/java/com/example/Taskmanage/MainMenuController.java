@@ -18,12 +18,13 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
-public class MainMenuController implements Initializable {
+public class MainMenuController extends DBconnect implements Initializable {
 
     //textfield
         @FXML
@@ -59,11 +60,17 @@ public class MainMenuController implements Initializable {
     TableColumn<Tasks, String> deadlineColumn;
     @FXML
     TableColumn<Tasks, String> taskdetailColumn;
+    @FXML
+    TableColumn<Tasks, Integer> userColumn;
+
 
     LocalDate localDate;
 
+    public MainMenuController() throws SQLException {
+    }
 
-        // -----Functions-----//
+
+    // -----Functions-----//
 
             //Database Query
        /* public Connection getConnection() {
@@ -80,32 +87,53 @@ public class MainMenuController implements Initializable {
 
 
          */
-            DBconnect connectnow = new DBconnect();
-            Connection connectiontask = connectnow.getConnection("tasks","root","1234");
+           // DBconnect connectnow = new DBconnect();
+            //Connection connectiontask = connectnow.getConnection("tasks","root","1234");
             public void executeQuery(String query) {
 
                 try {
-                    Statement statement = connectiontask.createStatement();
+                    Statement statement = connection.createStatement();
                     statement.executeUpdate(query);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+     String DbtaskID;
+    int DbtaskUser;
+            String DbtaskTitle,DbtaskDetail,DbtaskDeadline;
 
-    public ObservableList<Tasks> getTasks(){
+
+    Statement statement = connection.createStatement();
+    ResultSet queryOutput;
+
+    public ObservableList<Tasks> getTasks()  {
         ObservableList<Tasks> TasksList = FXCollections.observableArrayList();
         //Connection connectiontask = getConnection();
-        String query = "SELECT * FROM Tasks ";
-        Statement st;
-        ResultSet rs;
+        String query = "SELECT t.* FROM Tasks t JOIN users u ON u.user_id = t. user_id WHERE u.username ='try' and u.pass = '12345';";
+        //Statement st;
+        //ResultSet rs;
+        //String querygetUSerID = "SELECT user_id FROM users WHERE username = '"+username+"';";
 
         try {
-            st = connectiontask.createStatement();
-            rs = st.executeQuery(query);
-            Tasks tasks;
-            while(rs.next()) {
-                tasks = new Tasks(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
-                TasksList.add(tasks);
+             statement = connection.createStatement();
+             queryOutput = statement.executeQuery(query);
+
+
+
+            while(queryOutput.next()) {
+                //tasks = new Tasks(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+                Tasks tasks;
+                //TasksList.add(tasks);
+
+               //  DbtaskID = queryOutput.getString("task_id");
+                 //DbtaskTitle = queryOutput.getString("task_title");
+                 //DbtaskDeadline = queryOutput.getString("task_deadline");
+                 //DbtaskDetail = queryOutput.getString("task_detail");
+                 //DbtaskUser = queryOutput.getString("user");
+
+                 tasks = new Tasks(queryOutput.getInt(1),queryOutput.getString(2),queryOutput.getString(3),queryOutput.getString(4), queryOutput.getInt(5));
+TasksList.add(tasks);
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,6 +148,7 @@ public class MainMenuController implements Initializable {
         tasktitleColumn.setCellValueFactory(new PropertyValueFactory<Tasks,String>("tasktitle"));
         deadlineColumn.setCellValueFactory(new PropertyValueFactory<Tasks,String>("deadline"));
         taskdetailColumn.setCellValueFactory(new PropertyValueFactory<Tasks,String>("taskdetail"));
+        userColumn.setCellValueFactory(new PropertyValueFactory<Tasks,Integer>("user"));
 
         TableView.setItems(list);
     }
@@ -127,8 +156,13 @@ public class MainMenuController implements Initializable {
         // Buttons
     public void addButton() {
 
-        String query = "insert into Tasks values("+id.getText()+",'" + tasktitle.getText()+"','"+deadline.getValue()+"','"+taskdetails.getText()+"');";
-      // String query = "insert into tasks value(2,'Angtry','try', 'try');";
+        String query = null;
+        try {
+            query = "insert into Tasks values("+id.getText()+",'" + tasktitle.getText()+"','"+deadline.getValue()+"','"+taskdetails.getText()+"',"+queryOutput.getString(5) +");";
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        //String query = "insert into tasks value(8,'Angtry','try', 'try', '1');";
         executeQuery(query);
         showtasks();
 
@@ -159,12 +193,12 @@ public class MainMenuController implements Initializable {
 
     }
 
-    public void deleteButton() {
+    public void deleteButton()  {
         String query = "DELETE FROM tasks WHERE task_id="+id.getText()+"";
         executeQuery(query);
         showtasks();
     }
-    public void updateButton(){
+    public void updateButton()  {
         String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + "', task_Deadline ='" + deadline.getValue()+ "', task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
         executeQuery(query);
         showtasks();
@@ -180,7 +214,7 @@ public class MainMenuController implements Initializable {
     private Scene scene;
     private Parent root;
 
-    public void logout(ActionEvent logout) throws IOException{
+    public void logout(ActionEvent logout) throws IOException {
         System.out.println("logout");
         root = FXMLLoader.load(getClass().getResource("loginD.fxml"));
         stage = (Stage) ((Node) logout.getSource()).getScene().getWindow();
@@ -193,7 +227,8 @@ public class MainMenuController implements Initializable {
 
 
     public void initialize(URL location, ResourceBundle resources) {
-        showtasks();
+            showtasks();
+
     }
 
 
