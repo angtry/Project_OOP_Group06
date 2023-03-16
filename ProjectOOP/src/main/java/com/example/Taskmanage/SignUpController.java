@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -14,9 +15,16 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class SignUpController extends DBconnect {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
-
-    public void backlogin(){
+    public void backlogin(ActionEvent backlogin)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("loginD.fxml"));
+        stage = (Stage) ((Node) backlogin.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
