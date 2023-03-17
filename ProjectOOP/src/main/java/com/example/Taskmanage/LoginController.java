@@ -1,5 +1,6 @@
 package com.example.Taskmanage;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,11 +8,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -19,18 +24,18 @@ import java.sql.Statement;
 
 public class LoginController extends DBconnect {
 
-    @FXML
-    TextField nameTextField;
-
-    @FXML
-    public ListView<String> listtask;
-
-
-    @FXML
-    private Label showname;
-
-    @FXML
-    private Label message;
+        //    @FXML
+        //    TextField nameTextField;
+        //
+        //    @FXML
+        //    public ListView<String> listtask;
+        //
+        //
+        //    @FXML
+        //    private Label showname;
+        //
+        //    @FXML
+        //    private Label message;
 
     @FXML
     private TextField username;
@@ -53,25 +58,25 @@ public class LoginController extends DBconnect {
     private Parent root;
 
 
-    public void connectDB(ActionEvent event) throws IOException {
-
-        String connectQuery = "select * from users;";
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet queryOutput = statement.executeQuery(connectQuery);
-
-            while (queryOutput.next()) {
-                //message.setText("DB Connect success !");
-                String Dbname = queryOutput.getString("username");
-                String Dbpass = queryOutput.getString("pass");
-               // message.setText(Dbname);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
+//    public void connectDB(ActionEvent event) throws IOException {
+//
+//        String connectQuery = "select * from users;";
+//        try {
+//            Statement statement = connection.createStatement();
+//            ResultSet queryOutput = statement.executeQuery(connectQuery);
+//
+//            while (queryOutput.next()) {
+//                //message.setText("DB Connect success !");
+//                String Dbname = queryOutput.getString("username");
+//                String Dbpass = queryOutput.getString("pass");
+//               // message.setText(Dbname);
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
         public void login(ActionEvent event) throws Exception  {
 
@@ -137,11 +142,54 @@ public class LoginController extends DBconnect {
             stage.show();
         }
         public void exit() {
+            // exit the program
+            //System.out.println(getiduser());
+            //stage.close();
+            Platform.exit();
+        }
 
+        public int getiduser(){
+            String userinput = username.getText();
+            String passinput = password.getText();
+            boolean checkUP = false;
+
+            String connectQuery = "select * from users;";
+            try {
+                Statement statement = connection.createStatement();
+                ResultSet queryOutput = statement.executeQuery(connectQuery);
+
+                while (queryOutput.next()) {
+                    //message.setText("DB Connect success !");
+                    String Dbname = queryOutput.getString("username");
+                    String Dbpass = queryOutput.getString("pass");
+                    Integer userid = queryOutput.getInt("user_id");
+                    // message.setText(Dbname);
+
+                    if(Dbname.equals(userinput) && Dbpass.equals(passinput)){
+                        checkUP = true;
+                        return userid;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return 0;
         }
 
 
+        public LoginController(){}
 
+
+    @FXML
+    private Hyperlink link;
+    @FXML
+    void link(ActionEvent link) throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("https://t.me/angtrychhea"));
+
+    }
+
+        //
 
 
 }

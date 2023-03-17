@@ -11,69 +11,72 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Taskmanage.MainMenuController">
+   <AnchorPane layoutX="219.0" layoutY="50.0" prefHeight="114.0" prefWidth="233.0" style="-fx-background-color: #025E73;" />
 
-        <VBox layoutX="232.0" layoutY="21.0" spacing="15.0">
+             <Label layoutX="268.0" layoutY="20.0" text="ID">
+                 <font>
+                     <Font size="14.0" />
+                 </font>
+             </Label>
+   <AnchorPane layoutX="233.0" layoutY="64.33333206176758">
+      <children>
+                   <Label text="Task Title" textFill="WHITE">
+                       <font>
+                           <Font size="14.0" />
+                       </font>
+                   </Label>
+                   <Label layoutY="35.33333206176758" text="Deadline" textFill="WHITE">
+                       <font>
+                           <Font size="14.0" />
+                       </font>
+                   </Label>
+                   <Label layoutY="70.66666793823242" text="task details" textFill="WHITE">
+                       <font>
+                           <Font size="14.0" />
+                       </font>
+                   </Label>
+      </children>
+   </AnchorPane>
 
-                <Label text="ID">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <Label text="Task Title">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <Label text="Deadline">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <Label text="task details">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-
-        </VBox>
-        <VBox layoutX="311.0" layoutY="13.0" prefHeight="130.0" prefWidth="129.0" spacing="10.0">
-
-                <TextField fx:id="id" />
-                <TextField fx:id="tasktitle" />
-      <DatePicker fx:id="deadline" />
-                <TextField fx:id="taskdetails" prefHeight="25.0" prefWidth="188.0" />
-
-
-        </VBox>
+             <TextField fx:id="id" layoutX="305.0" layoutY="13.0" prefHeight="25.0" prefWidth="137.0" />
+   <AnchorPane layoutX="306.0" layoutY="56.0" prefHeight="97.0" prefWidth="135.0">
+      <children>
+                   <TextField fx:id="tasktitle" prefHeight="25.0" prefWidth="137.0" />
+         <DatePicker fx:id="deadline" layoutY="36.0" prefHeight="25.0" prefWidth="137.0" />
+                   <TextField fx:id="taskdetails" layoutY="71.0" prefHeight="25.0" prefWidth="137.0" />
+      </children>
+   </AnchorPane>
         <HBox layoutX="26.0" layoutY="202.0" spacing="10.0" />
         <TableView fx:id="TableView" layoutX="88.0" layoutY="193.0" prefHeight="192.0" prefWidth="477.0">
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
                 <TableColumn fx:id="tasktitleColumn" prefWidth="120.0" text="Task Title" />
                 <TableColumn fx:id="deadlineColumn" prefWidth="120.0" text="Deadline" />
-                <TableColumn fx:id="taskdetailColumn" prefWidth="106.0" text="Task details" />
-         <TableColumn fx:id="userColumn" minWidth="8.6666259765625" prefWidth="85.99996948242188" text="User" />
+                <TableColumn fx:id="taskdetailColumn" prefWidth="200.6666768391927" text="Task details" />
             </columns>
         </TableView>
-          <Button fx:id="deleteButton" layoutX="505.0" layoutY="112.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
-          <Button fx:id="updateButton" layoutX="505.0" layoutY="67.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
-          <Button fx:id="addButton" layoutX="505.0" layoutY="17.0" mnemonicParsing="false" onAction="#addButton" prefHeight="30.0" prefWidth="60.0" text="Add" />
+          <Button fx:id="deleteButton" layoutX="482.0" layoutY="14.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
+          <Button fx:id="updateButton" layoutX="482.0" layoutY="56.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
+          <Button fx:id="addButton" defaultButton="true" layoutX="469.0" layoutY="101.0" mnemonicParsing="false" onAction="#addButton" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #F2C12E;" text="Add" />
       <ImageView fitHeight="83.0" fitWidth="111.0" layoutX="105.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@CADT.png" />
 
       </ImageView>
-   <Button fx:id="cleartextfield" layoutX="505.0" layoutY="156.0" mnemonicParsing="false" onAction="#cleartextfield" prefHeight="31.0" prefWidth="60.0" text="Clear" textFill="#ff8b0e" />
-   <CheckBox layoutX="239.0" layoutY="159.0" mnemonicParsing="false" text="Add to Priority Tasks Lists" />
-   <AnchorPane layoutX="-5.0" prefHeight="400.0" prefWidth="55.0" style="-fx-background-color: gray;">
+   <Button fx:id="cleartextfield" layoutX="469.0" layoutY="143.0" mnemonicParsing="false" onAction="#cleartextfield" prefHeight="31.0" prefWidth="85.0" text="Clear" textFill="#ff8b0e" />
+   <CheckBox layoutX="260.0" layoutY="170.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="188.0" text="Add to Priority Tasks Lists" />
+   <AnchorPane layoutX="-6.0" prefHeight="400.0" prefWidth="77.0" style="-fx-background-color: #025E73;">
       <children>
-         <Button fx:id="logout" layoutX="6.0" layoutY="334.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="55.0" text="Log out" />
-         <Label layoutX="24.0" layoutY="300.0" text="Label" />
+         <Button fx:id="logout" layoutX="12.0" layoutY="316.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="60.0" text="Logout" />
+         <Button fx:id="closeprogram" layoutX="12.0" layoutY="359.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #F2C12E;" text="Exit" textAlignment="CENTER">
+            <font>
+               <Font name="Calibri Light" size="10.0" />
+            </font>
+         </Button>
       </children>
    </AnchorPane>
-   <Label layoutX="88.0" layoutY="175.0" text="Create by Group 06" textAlignment="CENTER" />
+   <Label layoutX="88.0" layoutY="125.0" text="Create by Group 06" textAlignment="CENTER" />
 
 </AnchorPane>

@@ -8,12 +8,12 @@ public class Tasks {
     private int user;
 
     public Tasks(){}
-    public Tasks(int id, String tasktitle, String deadline, String taskdetail ,int user) {
+    public Tasks(int id, String tasktitle, String deadline, String taskdetail  ) {
         this.id = id;
         this.tasktitle = tasktitle;
         this.deadline = deadline;
         this.taskdetail = taskdetail;
-        this.user = user;
+
     }
 
     public int getId() {

@@ -1,5 +1,6 @@
 package com.example.Taskmanage;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,13 +15,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -29,6 +28,7 @@ public class MainMenuController extends DBconnect implements Initializable {
     //textfield
         @FXML
         private TextField id;
+
         @FXML
         private TextField tasktitle;
         @FXML
@@ -64,11 +64,9 @@ public class MainMenuController extends DBconnect implements Initializable {
     TableColumn<Tasks, Integer> userColumn;
 
 
-    LocalDate localDate;
+//    LocalDate localDate;
 
-    public MainMenuController() throws SQLException {
-    }
-
+    public MainMenuController() throws SQLException {}
 
     // -----Functions-----//
 
@@ -98,41 +96,33 @@ public class MainMenuController extends DBconnect implements Initializable {
                     e.printStackTrace();
                 }
             }
-     String DbtaskID;
-    int DbtaskUser;
-            String DbtaskTitle,DbtaskDetail,DbtaskDeadline;
-
 
     Statement statement = connection.createStatement();
     ResultSet queryOutput;
 
     public ObservableList<Tasks> getTasks()  {
         ObservableList<Tasks> TasksList = FXCollections.observableArrayList();
-        //Connection connectiontask = getConnection();
-        String query = "SELECT t.* FROM Tasks t JOIN users u ON u.user_id = t. user_id WHERE u.username ='try' and u.pass = '12345';";
-        //Statement st;
-        //ResultSet rs;
+
+        String query = "SELECT t.task_id, t.task_title, t.task_deadline, t.task_detail FROM Tasks t JOIN users u ON u.user_id = t. user_id WHERE u.user_id =1;";
+
         //String querygetUSerID = "SELECT user_id FROM users WHERE username = '"+username+"';";
 
         try {
              statement = connection.createStatement();
              queryOutput = statement.executeQuery(query);
-
-
-
             while(queryOutput.next()) {
                 //tasks = new Tasks(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
                 Tasks tasks;
                 //TasksList.add(tasks);
 
-               //  DbtaskID = queryOutput.getString("task_id");
+               // int  DbtaskID = queryOutput.getInt("task_id");
                  //DbtaskTitle = queryOutput.getString("task_title");
                  //DbtaskDeadline = queryOutput.getString("task_deadline");
                  //DbtaskDetail = queryOutput.getString("task_detail");
                  //DbtaskUser = queryOutput.getString("user");
 
-                 tasks = new Tasks(queryOutput.getInt(1),queryOutput.getString(2),queryOutput.getString(3),queryOutput.getString(4), queryOutput.getInt(5));
-TasksList.add(tasks);
+                 tasks = new Tasks(queryOutput.getInt(1),queryOutput.getString(2),queryOutput.getString(3),queryOutput.getString(4));
+                TasksList.add(tasks);
 
             }
         } catch (Exception e) {
@@ -148,60 +138,51 @@ TasksList.add(tasks);
         tasktitleColumn.setCellValueFactory(new PropertyValueFactory<Tasks,String>("tasktitle"));
         deadlineColumn.setCellValueFactory(new PropertyValueFactory<Tasks,String>("deadline"));
         taskdetailColumn.setCellValueFactory(new PropertyValueFactory<Tasks,String>("taskdetail"));
-        userColumn.setCellValueFactory(new PropertyValueFactory<Tasks,Integer>("user"));
-
+//        userColumn.setCellValueFactory(new PropertyValueFactory<Tasks,Integer>("user"));
         TableView.setItems(list);
     }
 
+
+
+
         // Buttons
     public void addButton() {
+        Random random = new Random();
+        int randomtaskID = random.nextInt(100);
+        int id = randomtaskID ;
+        String query = "insert into Tasks values("+id+",'" + tasktitle.getText()+"','"+deadline.getValue()+"','"+taskdetails.getText()+"','1');";
 
-        String query = null;
-        try {
-            query = "insert into Tasks values("+id.getText()+",'" + tasktitle.getText()+"','"+deadline.getValue()+"','"+taskdetails.getText()+"',"+queryOutput.getString(5) +");";
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        //String query = "insert into tasks value(8,'Angtry','try', 'try', '1');";
         executeQuery(query);
         showtasks();
 
-        /*    String username = nameTextField.getText();
-
-
-        String connectQuery = "select * from tasks;";
-        String AddQuery = "insert into tasks value(1,1,'JavaFX',curdate());";
-
-        String listQuery = "select task_name from tasks;";
-        try{
-            Statement statement = connectiontask.createStatement();
-            ResultSet queryOutput = statement.executeQuery(connectQuery);
-            ResultSet AddQueryOutput = statement.executeQuery(AddQuery);
-            ResultSet Listtaskoutput = statement.executeQuery(listQuery);
-
-
-
-            while(queryOutput.next()){
-                System.out.println(Listtaskoutput);
-
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-*/
-
     }
 
-    public void deleteButton()  {
+
+    public void deleteButton() throws IOException {
+        String taskid = id.getText();
+        if(taskid.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setContentText("Please Input the ID of the task you want to delete.");
+            alert.showAndWait();
+
+        }else {
         String query = "DELETE FROM tasks WHERE task_id="+id.getText()+"";
         executeQuery(query);
-        showtasks();
+        showtasks();}
     }
-    public void updateButton()  {
-        String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + "', task_Deadline ='" + deadline.getValue()+ "', task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
-        executeQuery(query);
-        showtasks();
+    public void updateButton() throws Exception {
+        String taskid = id.getText();
+        if(taskid.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setContentText("Please Input the ID of the task you want to delete.");
+            alert.showAndWait();
+        }else {
+            String query = "UPDATE Tasks SET task_title='" + tasktitle.getText() + "', task_Deadline ='" + deadline.getValue()+ "', task_detail='" + taskdetails.getText() +"' WHERE task_id =" + id.getText()+ ";";
+            executeQuery(query);
+            showtasks();
+        }
     }
     public void cleartextfield(){
                 id.setText(null);
@@ -215,7 +196,7 @@ TasksList.add(tasks);
     private Parent root;
 
     public void logout(ActionEvent logout) throws IOException {
-        System.out.println("logout");
+        System.out.println(useridlogin);
         root = FXMLLoader.load(getClass().getResource("loginD.fxml"));
         stage = (Stage) ((Node) logout.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -223,7 +204,9 @@ TasksList.add(tasks);
         stage.show();
 
     }
-
+    public void exit() {
+        Platform.exit();
+    }
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -232,15 +215,10 @@ TasksList.add(tasks);
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
+    LoginController loginController = new LoginController();
+int useridlogin;
+    public LoginController getLoginController() {
+        useridlogin = loginController.getiduser();
+        return getLoginController();
+    }
 }
